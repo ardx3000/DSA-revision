@@ -4,9 +4,19 @@ namespace DSA_Revision.Data_Structure
 {
     class Queue<T>
     {
+
+        /*Queue is a data type that is based of the First-in-First-Out (FIFO) concept.
+         * This means that the first element that is queued will also be the first element to be dequeued.
+         * This data type has different usecases:
+         * CPU scheduling , Disk scheduling.
+         * Whean data is transfer asynchronously.
+         * Handling of interrupts in real-time systems.
+         */
+
         private T[] data;
         private int front, rear;
 
+        //Constructor to create a queue
         public Queue(int capacity) 
         {
             data = new T[capacity];
@@ -14,16 +24,19 @@ namespace DSA_Revision.Data_Structure
             rear = -1;
         }
 
+        //Check if the queue is full
         bool IsFull()
         {
             return front == 0 && rear == data.Length - 1;
         }
 
+        //Check if the queue is empty
         bool IsEmpty()
         {
             return front == -1;
         }
 
+        //Add element into queue
         public void Enqueue(T element)
         {
             if (IsFull())
@@ -38,6 +51,8 @@ namespace DSA_Revision.Data_Structure
             data[rear] = element;
             Console.WriteLine($"Inserted {element}");
         }
+
+        //Remove elements from queue
         public T Dequeue()
         {
             if (IsEmpty())
@@ -60,6 +75,7 @@ namespace DSA_Revision.Data_Structure
             return element;
         }
 
+        //Display the queue
         public void PrintQueue()
         {
             if (IsEmpty())
